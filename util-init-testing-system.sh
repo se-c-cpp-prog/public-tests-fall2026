@@ -4,7 +4,7 @@ set -euo pipefail
 
 # 0. Init constants.
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-source "${SOURCE_DIR}/util-constants.sh"
+source "${SCRIPT_DIR}/util-constants.sh"
 
 # 1. Clean up previous initialization.
 rm -rf ${MODULE_DIR} ${VIRTUAL_ENV_DIR}
