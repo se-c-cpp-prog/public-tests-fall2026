@@ -1,0 +1,11 @@
+# Ignore testbuild module.
+.testbuild/
+
+# Ignore Python virtual environment.
+.venv/
+__pycache__/
+
+# Ignore working test files.
+*.exe
+*.out
+*.c
