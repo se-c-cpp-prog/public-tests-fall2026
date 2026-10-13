@@ -50,7 +50,6 @@ class __Expected(testbuild.Expected):
 
 		return testbuild.OK
 
-
 def __get_tester() -> testbuild.Tester:
 	tester = testbuild.Tester("Sum")
 
@@ -72,14 +71,12 @@ def __get_tester() -> testbuild.Tester:
 
 	return tester
 
-
 def __main() -> int:
 	argument_parser = Utils.get_argument_parser()
 	args = argument_parser.parse_args()
 	tester = __get_tester()
 	report = tester.run(args.program, timeout_factor = args.timeout_factor)
 	return report.exit_code
-
 
 if __name__ == "__main__":
 	sys.exit(__main())
