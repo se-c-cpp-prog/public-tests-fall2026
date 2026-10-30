@@ -72,7 +72,8 @@ def __get_tester() -> testbuild.Tester:
 		]:
 			with group.test(name) as test:
 				test.stdin = stdin
-				test.returncode = 1
+				test.stderr_policy = testbuild.StderrPolicy.NONEMPTY
+				test.returncode_policy = testbuild.ReturnCodePolicy.SHOULD_NOT_BE_ZERO
 
 	return tester
 
