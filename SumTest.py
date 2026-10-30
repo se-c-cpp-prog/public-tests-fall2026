@@ -6,6 +6,8 @@ import testbuild
 
 import Utils
 
+__TARGET_NAME = "Sum"
+
 class __Expected(testbuild.Expected):
 	def __init__(self, a: int, b: int) -> None:
 		self.a = a
@@ -51,7 +53,10 @@ class __Expected(testbuild.Expected):
 		return testbuild.OK
 
 def __get_tester() -> testbuild.Tester:
-	tester = testbuild.Tester("Sum")
+	tester = testbuild.Tester(__TARGET_NAME, coefficients = Utils.get_coefficients(__TARGET_NAME, {
+		"pos": "POS",
+		"neg": "NEG"
+	}))
 
 	with tester.group("valid input", categories = ["pos"]) as group:
 		for a, b in [(1, 2), (-10, 4), (0, 0), (2_000_000_000, -1_000_000_000)]:
@@ -74,8 +79,15 @@ def __get_tester() -> testbuild.Tester:
 def __main() -> int:
 	argument_parser = Utils.get_argument_parser()
 	args = argument_parser.parse_args()
+
 	tester = __get_tester()
 	report = tester.run(args.program, timeout_factor = args.timeout_factor)
+
+	results_path = args.github_actions_export_only_score_to
+	if results_path and len(report.coefficients) != 0:
+		with open(results_path, mode = "w", encoding = "UTF-8") as file:
+			file.write(f"{report.score}\n")
+
 	return report.exit_code
 
 if __name__ == "__main__":
