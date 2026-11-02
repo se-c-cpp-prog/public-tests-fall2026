@@ -1,0 +1,9 @@
++
+3 3
+inf inf inf 
+inf -inf inf 
+inf inf inf 
+3 3
+-inf -inf inf 
+inf inf inf 
+inf -inf inf 

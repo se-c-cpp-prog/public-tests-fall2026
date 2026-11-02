@@ -11,3 +11,6 @@ git -C ${MODULE_DIR} pull --ff-only
 
 # 2. Re-install testbuild module.
 ${VIRTUAL_ENV_DIR}/bin/python3 -m pip install --no-deps --upgrade --force-reinstall ${MODULE_DIR}
+
+# 3. Install requirements.
+${VIRTUAL_ENV_DIR}/bin/python3 -m pip install -r requirements.txt

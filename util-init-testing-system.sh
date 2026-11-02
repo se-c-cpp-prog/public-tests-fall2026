@@ -20,3 +20,6 @@ ${VIRTUAL_ENV_DIR}/bin/python3 -m pip install --upgrade pip setuptools
 
 # 5. Install testbuild module.
 ${VIRTUAL_ENV_DIR}/bin/python3 -m pip install --no-deps ${MODULE_DIR}
+
+# 6. Install requirements.
+${VIRTUAL_ENV_DIR}/bin/python3 -m pip install -r requirements.txt

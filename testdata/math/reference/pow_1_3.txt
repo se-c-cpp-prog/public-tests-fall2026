@@ -1,0 +1,11 @@
+10 10
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 
+inf inf inf inf inf inf inf inf inf inf 

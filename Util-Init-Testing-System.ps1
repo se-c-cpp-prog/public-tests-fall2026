@@ -15,14 +15,17 @@ foreach ($path in ${paths}) {
     }
 }
 
-# 1. Clone testing system repository.
+# 2. Clone testing system repository.
 git clone ${MODULE_URL} ${MODULE_DIR}
 
-# 2. Create Python virtual environment.
+# 3. Create Python virtual environment.
 python -m venv ${VIRTUAL_ENV_DIR}
 
-# 3. Install and upgrade pip and setuptools module.
+# 4. Install and upgrade pip and setuptools module.
 ."${VIRTUAL_ENV_DIR}\Scripts\python.exe" -m pip install --upgrade pip setuptools
 
-# 4. Install testbuild module.
+# 5. Install testbuild module.
 ."${VIRTUAL_ENV_DIR}\Scripts\python.exe" -m pip install --no-deps ${MODULE_DIR}
+
+# 6. Install requirements.
+."${VIRTUAL_ENV_DIR}\Scripts\python.exe" -m pip install -r requirements.txt
