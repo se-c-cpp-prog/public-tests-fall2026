@@ -475,6 +475,11 @@ def __main() -> int:
 	print("Warning! This tester generates really big matrices. Have some patience...")
 
 	tester = __get_tester()
+
+	print("Warming up...")
+	tester.run(args.program, timeout_factor = args.timeout_factor, quiet = True)
+
+	print("Testing...")
 	report = tester.run(args.program, timeout_factor = args.timeout_factor)
 
 	results_path = args.github_actions_export_only_score_to
