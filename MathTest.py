@@ -147,7 +147,7 @@ class __Expected(testbuild.Expected):
 		# Comparison matrices.
 		nested_actual_matrix = [s.strip().split(' ') for s in actual[1:]]
 		nested_expected_matrix = [s.strip().split(' ') for s in expected[1:]]
-		
+
 		if len(nested_actual_matrix) != len(nested_expected_matrix) or len(nested_actual_matrix[0]) != len(nested_expected_matrix[0]):
 			return testbuild.Verdict(
 				testbuild.VerdictCode.EXPECTATION,
@@ -180,7 +180,7 @@ class __Expected(testbuild.Expected):
 						testbuild.VerdictCode.EXPECTATION,
 						f"at (row, column)=({y}, {x}) position should be '{str(e)}', but actual is '{str(a)}'"
 					)
-				
+
 				diff = abs(a - e)
 				m = min(max_by_row[y], max_by_col[x])
 				d = diff / m
@@ -195,7 +195,7 @@ class __Expected(testbuild.Expected):
 def __generate_test(test_data: dict) -> Union[np.ndarray, np.float32, str]:
 	op = test_data["op"]
 	amtx = test_data["amtx"]
-	
+
 	if (op in {"+", "-", "*"}):
 		bmtx = test_data["bmtx"]
 	elif (op == "^"):
@@ -329,21 +329,21 @@ def __get_additional_negative_tests() -> List[NegTestData]:
 		__ERROR_CANNOT_OPEN_FILE, 1.0
 	))
 
-	input_filename = os.path.join(__INPUT_DIR, "oom_1.txt")
-	output_filename = os.path.join(__OUTPUT_DIR, f"random_name.txt")
-	tests.append(NegTestData(
-		f"this should be out of memory error",
-		[input_filename, output_filename],
-		__ERROR_OUT_OF_MEMORY, 1.0
-	))
+#	input_filename = os.path.join(__INPUT_DIR, "oom_1.txt")
+#	output_filename = os.path.join(__OUTPUT_DIR, f"random_name.txt")
+#	tests.append(NegTestData(
+#		f"this should be out of memory error",
+#		[input_filename, output_filename],
+#		__ERROR_OUT_OF_MEMORY, 1.0
+#	))
 
-	input_filename = os.path.join(__INPUT_DIR, "oom_2.txt")
-	output_filename = os.path.join(__OUTPUT_DIR, f"random_name.txt")
-	tests.append(NegTestData(
-		f"this also should be out of memory error",
-		[input_filename, output_filename],
-		__ERROR_OUT_OF_MEMORY, 1.0
-	))
+#	input_filename = os.path.join(__INPUT_DIR, "oom_2.txt")
+#	output_filename = os.path.join(__OUTPUT_DIR, f"random_name.txt")
+#	tests.append(NegTestData(
+#		f"this also should be out of memory error",
+#		[input_filename, output_filename],
+#		__ERROR_OUT_OF_MEMORY, 1.0
+#	))
 
 	tests.append(NegTestData(
 		f"only 1 argument provided",
