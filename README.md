@@ -30,7 +30,29 @@
     # на Linux/macOS
     ```
 
-4. Перед запуском тестов вам необходимо активировать созданный в пункте 3 [виртуальную среду Python](https://docs.python.org/3/library/venv.html):
+4. *Только Windows* В момент исполнения команды `powershell` у вас может появиться ошибка `cannot be loaded because running scripts is disabled on this system` - это ошибка связана с тем, что в вашей системе запрещены запуски неофициальных PowerShell скриптов. Вам нужно *от имени администратора* запустить PowerShell оболочку и запустить команду:
+
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned
+    ```
+
+    или, если появится ошибка, то
+
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+
+    или, если и это не поможет, то
+
+    ```powershell
+    powershell -ExecutionPolicy Bypass -File Util-Constants.ps1
+    powershell -ExecutionPolicy Bypass -File Util-Init-Testing-System.ps1
+    powershell -ExecutionPolicy Bypass -File Util-Update-Testing-System.ps1
+    ```
+
+    После - вы возвращаетесь в предыдущий пункт и далее - п. 5.
+
+5. Перед запуском тестов вам необходимо активировать созданный в пункте 3 [виртуальную среду Python](https://docs.python.org/3/library/venv.html):
 
     ```powershell
     .\.venv\Scripts\Activate.ps1
@@ -42,13 +64,13 @@
     # на Linux/macOS
     ```
 
-5. Для обновления тестов находясь в корневой директории этого репозитория выполнить в терминале команду:
+6. Для обновления тестов находясь в корневой директории этого репозитория выполнить в терминале команду:
 
     ```bash
     git pull
     ```
 
-6. Для обновления тестирующей системы (о чём будет сказано в чате курса) находясь в корневой директории этого репозитория выполнить в терминале команду:
+7. Для обновления тестирующей системы (о чём будет сказано в чате курса) находясь в корневой директории этого репозитория выполнить в терминале команду:
 
     ```powershell
     powershell .\Util-Update-Testing-System.ps1
