@@ -8,6 +8,7 @@ import testbuild
 
 import Utils
 
+from pathlib import Path
 from typing import Union, Iterable, List, Dict, Any
 from dataclasses import dataclass
 
@@ -451,10 +452,14 @@ def __get_tester() -> testbuild.Tester:
 			with tester.group(f"{name} {category_name}", categories = group_categories) as group:
 				for testdata in testdatas:
 					with group.test(testdata.name) as test:
+						with test.before_test() as before:
+							before.remove_file(Path(testdata.output_filename))
+
 						test.args = [testdata.input_filename, testdata.output_filename]
 						test.returncode_policy = testdata.returncode_policy
 						test.returncode = testdata.returncode
 						test.timeout = testdata.timeout
+
 						if test.returncode == __ERROR_SUCCESS:
 							test.expected = __Expected(testdata)
 
