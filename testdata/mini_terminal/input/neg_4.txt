@@ -1,0 +1,2 @@
+cat --path input.txt --head 1 --tail 1
+exit

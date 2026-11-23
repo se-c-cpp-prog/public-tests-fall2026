@@ -1,0 +1,4 @@
+help cat
+cat: display file contents
+Options: --path <file>, --head <N>, --tail <N>, --print_width <N>
+exit

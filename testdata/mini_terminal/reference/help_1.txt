@@ -1,0 +1,4 @@
+help
+Usage: MiniTerminal <commands>
+Available commands: help, exit, cat, wc, paste, sort, diff
+exit

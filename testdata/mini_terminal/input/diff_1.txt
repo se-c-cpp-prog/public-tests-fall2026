@@ -1,0 +1,2 @@
+diff file_a.txt file_b.txt
+exit

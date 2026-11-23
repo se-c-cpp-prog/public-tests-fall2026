@@ -1,0 +1,5 @@
+cat --path /ZW/Work/01_ITMO/SE/C_Prog_Fall2026/09_PublicTestsDev/testdata/mini_terminal/data/input.txt
+123456 qwerty
+qwerty meow
+meow
+exit
